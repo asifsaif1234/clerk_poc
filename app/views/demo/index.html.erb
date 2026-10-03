@@ -1,0 +1,28 @@
+<div class="mx-auto max-w-4xl px-6 py-12">
+  <div class="rounded-xl border bg-white p-8 shadow-sm">
+    <h1 class="text-2xl font-bold">
+      Demo Dashboard
+    </h1>
+
+    <p class="mt-3 text-green-700">
+      Authentication successful!
+    </p>
+
+    <div class="mt-6 space-y-3">
+      <p>
+        <strong>Clerk User ID:</strong>
+        <%= clerk.user_id %>
+      </p>
+
+      <p>
+        <strong>First name:</strong>
+        <%= @user&.first_name.presence || "Not provided" %>
+      </p>
+
+      <p>
+        <strong>Last name:</strong>
+        <%= @user&.last_name.presence || "Not provided" %>
+      </p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="mx-auto max-w-4xl px-6 py-16">
+  <div class="rounded-xl border bg-white p-8 shadow-sm">
+    <h1 class="text-3xl font-bold">
+      Rails 8 + Clerk POC
+    </h1>
+
+    <p class="mt-4 text-gray-600">
+      A simple demonstration of third-party authentication
+      using Clerk and Ruby on Rails.
+    </p>
+
+    <% if clerk_signed_in? %>
+      <p class="mt-6 text-green-700">
+        You are signed in.
+      </p>
+
+      <%= link_to "Open Demo",
+                  demo_path,
+                  class: "mt-4 inline-block rounded-md bg-blue-600 px-5 py-3 text-white" %>
+    <% else %>
+      <p class="mt-6">
+        Please sign in or create an account to access the demo.
+      </p>
+    <% end %>
+  </div>
+</div>
