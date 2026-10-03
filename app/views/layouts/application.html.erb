@@ -9,6 +9,14 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <script
+      async
+      crossorigin="anonymous"
+      data-clerk-publishable-key="<%= Rails.application.credentials.dig(:clerk, :publishable_key) %>"
+      src="https://cdn.jsdelivr.net/npm/@clerk/clerk-js@latest/dist/clerk.browser.js"
+      type="text/javascript">
+    </script>
+
     <%= yield :head %>
 
     <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
@@ -23,7 +31,20 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <%= yield %>
+
+
+
+  <body class="min-h-screen bg-gray-50 text-gray-900">
+    <%= render "shared/navbar" %>
+
+    <% flash.each do |type, message| %>
+      <div class="mx-auto mt-4 max-w-4xl rounded-lg bg-gray-100 p-3">
+        <%= message %>
+      </div>
+    <% end %>
+
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>

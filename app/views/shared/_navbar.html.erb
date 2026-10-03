@@ -1,0 +1,25 @@
+<% if clerk_signed_in? %>
+  <%= link_to "Demo",
+              demo_path,
+              class: "text-blue-600 hover:underline" %>
+
+  <div data-controller="clerk-logout">
+    <button
+      type="button"
+      data-action="click->clerk-logout#logout"
+      data-clerk-logout-target="button"
+      class="rounded-md bg-red-600 px-4 py-2 text-white">
+      Sign out
+    </button>
+  </div>
+<% else %>
+  <%= link_to "Sign In",
+              sign_in_path,
+              data: { turbo: false },
+              class: "text-gray-700 hover:text-blue-600" %>
+
+  <%= link_to "Sign Up",
+              sign_up_path,
+              data: { turbo: false },
+              class: "rounded-md bg-blue-600 px-4 py-2 text-white" %>
+<% end %>
